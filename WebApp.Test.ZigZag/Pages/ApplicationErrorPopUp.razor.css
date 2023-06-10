@@ -1,0 +1,21 @@
+﻿.center-screen-message-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 999;
+    top: 1%;
+    left: 1%;
+    width: 98%;
+    height: 98%;
+}
+.center-screen-message-panel {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 999;
+    top: 25%;
+    left: 20%;
+    width: 60%;
+    height: 50%;
+}  
+

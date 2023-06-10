@@ -1,0 +1,34 @@
+﻿@page "/LoginPage"
+@using ZigZag.Test.Dto;
+@inherits BasePage<UserLoginRequestDto>
+
+
+
+<PageTitle>Login</PageTitle>
+
+
+<div class="card">
+    <div class="card-header">
+        Login
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <label>User name (TestUser)</label>
+            <InputText @bind-Value="state.userName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Password (P@sswordTest)</label>
+            <InputText @bind-Value="state.password" type="password" class="form-control" />
+        </div>
+        <br />
+        <button @onclick="OnLoginButton_Click" disabled="@loading" class="btn btn-primary">
+            @if (loading)
+            {
+                <span class="spinner-border spinner-border-sm mr-1"></span>
+            }
+            Login
+        </button>
+    </div>
+    <div class="card-footer">
+    </div>
+</div>

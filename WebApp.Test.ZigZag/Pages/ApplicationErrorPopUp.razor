@@ -1,0 +1,16 @@
+﻿@inherits BasePage
+
+@if (IsVisible)
+{
+    <div id="appErrorMessageFrame" class="alert-danger center-screen-message-container">
+        <div class="alert-danger center-screen-message-panel">
+            <h4 class="card-header">Application error</h4>
+            <p class="card-body">
+                @appData.errorMessage
+            </p>
+            <div class="row-cols-6">
+                <button @onclick="OnErrorMessage_Click" class="btn btn-primary">Ok!</button>
+            </div>
+        </div>
+    </div>
+}

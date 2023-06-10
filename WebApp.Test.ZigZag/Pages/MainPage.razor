@@ -1,0 +1,64 @@
+﻿@using ZigZag.Test.Dto;
+@inherits BasePage;
+
+<h3>MainPage</h3>
+
+<div class="card">
+    <table class="card-header">
+        <tbody>
+            <tr width=100%>
+                <td width=50%><h4>Open APIs</h4></td>
+                <td style="text-align: right; width: 50%">
+                    <label>
+                        Category
+                        <select @onchange="(changeEventArgs) => OnCategoryChanged(changeEventArgs)">
+                            @foreach (var languageItem in _categories)
+                            {
+                                <option value="@languageItem">@languageItem</option>
+                            }
+                        </select>
+                    </label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="card-body">
+        <div class="form-group">
+            <label>APIs from '@_selectedCategory' category (Page @(1+_prevPageCursors.Count)):</label>
+        </div>
+        <div class="form-group">
+            <div class="content px-4">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>@nameof(ExternalApiDto.API)</th>
+                            <th>@nameof(ExternalApiDto.Description)</th>
+                            <th>@nameof(ExternalApiDto.Auth)</th>
+                            <th>@nameof(ExternalApiDto.Cors)</th>
+                            <th>@nameof(ExternalApiDto.Link)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in _externalApisData.externalApis)
+                        {
+                            <tr>
+                                <td>@item.api</td>
+                                <td>@item.description</td>
+                                <td>@item.auth</td>
+                                <td>@item.cors</td>
+                                <td>@item.link</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br />
+    </div>
+    <div class="card-footer">
+        <div class="row row-cols-6">
+            <button @onclick="OnPrevPage_Click" disabled="@_isFirstPage" class="btn btn-outline-primary">Prev.Page</button>
+            <button @onclick="OnNextPage_Click" disabled="@_isLastPage" class="btn btn-outline-primary">Next Page</button>
+        </div>
+    </div>
+</div>

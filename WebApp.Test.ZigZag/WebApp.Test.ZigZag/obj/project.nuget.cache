@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "BB9zK8IQK0z9gfuHSXCyLZ3Sm44FAiROgUEyOxx1tkjQbZPUtBfhd79cS7HDoXVaRl2Ord7sJ9bRyfgOTZmq5w==",
+  "success": true,
+  "projectFilePath": "D:\\Dev\\TestApp.ZigZag\\WebApp.Test.ZigZag\\WebApp.Test.ZigZag\\WebApp.Test.ZigZag.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ivana\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\ivana\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\ivana\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
