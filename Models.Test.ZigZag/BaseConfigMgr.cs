@@ -87,6 +87,8 @@ public abstract class BaseConfigMgr
             throw new ArgumentNullException("appSettingName");
         }
 
+#pragma warning disable CS8603 // Possible null reference return.
         return _jsonConfig["AppSettings"]![appSettingName]!.ToObject<TResult>();
+#pragma warning restore CS8603 // Possible null reference return.
     }
 }

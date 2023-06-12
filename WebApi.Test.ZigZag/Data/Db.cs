@@ -14,6 +14,10 @@ public class Db
 
         Users = mongoDatabase.GetCollection<UserDbo>("Users");
 
+        Users.Indexes.CreateOne(new CreateIndexModel<UserDbo>(
+            Builders<UserDbo>.IndexKeys.Ascending(user => user.UserName)
+            , new CreateIndexOptions { Unique = true }));
+
         AccessTokens = mongoDatabase.GetCollection<AccessTokenDbo>("AccessTokens");
 
         _config = config;
@@ -29,12 +33,13 @@ public class Db
 
     public void CreateDefaultUserIfMissing()
     {
-        if (null == Users.Find(item => item.userName.ToUpper() == _config.defaultUserName.ToUpper()).FirstOrDefault())
+        if (null == Users.Find(item => item.UserName.ToUpper() == _config.defaultUserName.ToUpper()).FirstOrDefault())
         {
             Users.InsertOne(new UserDbo
             {
-                userName = _config.defaultUserName,
-                userPasswordSha = _config.defaultUserPassword.ToSha256String()
+                UserUid=Guid.NewGuid(),
+                UserName = _config.defaultUserName,
+                UserPasswordSha = _config.defaultUserPassword.ToSha256String()
             });
         }
     }

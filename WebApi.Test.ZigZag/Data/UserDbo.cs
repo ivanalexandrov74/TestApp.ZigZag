@@ -5,8 +5,9 @@ namespace ZigZag.Test.Data;
 public class UserDbo
 {
     [BsonId]
-    public string userName { get; set; } = string.Empty;
+    public Guid UserUid { get; set; }
+    public string UserName { get; set; } = string.Empty;
 
-    public string userPasswordSha { get; set; } = string.Empty;
+    public string UserPasswordSha { get; set; } = string.Empty;
 
 }

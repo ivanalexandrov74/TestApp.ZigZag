@@ -2,11 +2,10 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/Models.Test.ZigZag/bin/Debug/net7.0
-/.vs/ProjectEvaluation/test.zigzag.metadata.v7.bin
-/Models.Test.ZigZag/obj/Debug/net7.0/ref/Models.Test.ZigZag.dll
-/WebApi.Test.ZigZag/bin/Debug/net7.0
+/.vs
+/Models.Test.ZigZag/bin
+/Models.Test.ZigZag/obj
+/WebApi.Test.ZigZag/bin
 /WebApi.Test.ZigZag/obj
-/WebApp.Test.ZigZag/bin/Debug/net7.0
-/WebApp.Test.ZigZag/obj/Debug/net7.0
+/WebApp.Test.ZigZag/bin
 /WebApp.Test.ZigZag/obj

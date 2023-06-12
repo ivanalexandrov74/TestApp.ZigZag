@@ -16,6 +16,7 @@ namespace ZigZag.Test.Data
 
         public IQueryable<ExternalApiDto> ExternalApis(bool forceRequest, string? category = null)
         {
+#pragma warning disable CS8629 // Nullable value type may be null.
             if (null == __externalApis || forceRequest || dataPickedOn.Value.Add(_config.externalApiDataLifetime) < DateTime.UtcNow)
             {
                 var externalApiResult = new ExternalApiCallMgr<ExternalApiResponseDto>(_config.externalApiUrl).GetAsync().Result;
@@ -24,6 +25,7 @@ namespace ZigZag.Test.Data
 
                 dataPickedOn = DateTime.UtcNow;
             }
+#pragma warning restore CS8629 // Nullable value type may be null.
 
             if (string.IsNullOrWhiteSpace(category))
                 return __externalApis;

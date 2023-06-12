@@ -9,6 +9,8 @@ public class AccessTokenDbo
 
     public Guid ApplicationSessionUid { get; set; } = Guid.Empty;
 
+    public Guid UserUid { get; set; }
+
     public DateTime CreatedOnUtc { get; set; }
 
     public DateTime ValidToUtc { get; set; }

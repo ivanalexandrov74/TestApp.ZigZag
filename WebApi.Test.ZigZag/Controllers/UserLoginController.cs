@@ -20,11 +20,11 @@ public class UserLoginController : BaseController
     [HttpPost]
     public async Task<ActionResult<UserLoginResponseDto>> Post(UserLoginRequestDto requestData)
     {
-        var userDbo = await db.Users.Find(item => item.userName.ToUpper() == requestData.userName.ToUpper()).FirstOrDefaultAsync();
+        var userDbo = await db.Users.Find(item => item.UserName.ToUpper() == requestData.userName.ToUpper()).FirstOrDefaultAsync();
 
         if (userDbo == null)
             return FailedResult<UserLoginResultEnum, UserLoginResponseDto>(UserLoginResultEnum.Invalid_user_name);
-        else if (userDbo.userPasswordSha != requestData.password.ToSha256String())
+        else if (userDbo.UserPasswordSha != requestData.password.ToSha256String())
             return FailedResult<UserLoginResultEnum, UserLoginResponseDto>(UserLoginResultEnum.Invalid_user_password);
         else 
         {
@@ -34,6 +34,7 @@ public class UserLoginController : BaseController
             {
                 AccessTokenUid = Guid.NewGuid(),
                 ApplicationSessionUid = this.applicationSessionUid,
+                UserUid=userDbo.UserUid,
                 CreatedOnUtc = DateTime.UtcNow,
                 ValidToUtc = DateTime.UtcNow.Add(accessTokenTimeoutUserSetting)
             };
